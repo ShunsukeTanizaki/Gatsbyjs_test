@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/layout"
-import Kv from "../components/kv"
+imporOOOOOt Layout from "../components/layout"
+OOOOOimport Kv from "../components/kv"
 import { Container, Row, Col } from "react-bootstrap";
 import BlogItem from '../components/blogItem';
 

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import Kv from "../components/kv"
 import { Container, Row, Col } from "react-bootstrap";
-import BlogItem from '../components/blogItem';
+import BlogItem from '../components/blogItem';   
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -11,9 +11,6 @@ const IndexPage = () => {
       allMarkdownRemark {
         edges {
           node {
-            fields {
-              slug
-            }
             frontmatter {
               date
               title
@@ -30,7 +27,7 @@ const IndexPage = () => {
       }
     }
   `)
-  console.log('data', data)
+  console.log('data', data);
   
   return (
     <Layout>
@@ -43,10 +40,7 @@ const IndexPage = () => {
                 <BlogItem
                   title={edge.node.frontmatter.title}
                   date={edge.node.frontmatter.date}
-                  src={edge.node.frontmatter.thumbnail.childImageSharp.fluid.src}
-                  link={edge.node.fields.slug}
-                />
-                
+                  src={} />
               </Col>
             ))
           }

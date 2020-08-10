@@ -11,18 +11,11 @@ const IndexPage = () => {
       allMarkdownRemark {
         edges {
           node {
-            fields {
-              slug
-            }
             frontmatter {
               date
               title
               thumbnail {
-                childImageSharp {
-                  fluid {
-                    src
-                  }
-                }
+                name
               }
             }
           }
@@ -30,7 +23,7 @@ const IndexPage = () => {
       }
     }
   `)
-  console.log('data', data)
+  console.log('data', data);
   
   return (
     <Layout>
@@ -39,17 +32,15 @@ const IndexPage = () => {
         <Row>
           {
             data.allMarkdownRemark.edges.map((edge, index) => (
-              <Col sm={4} key={index}>
+              <Col sm={4}>
                 <BlogItem
                   title={edge.node.frontmatter.title}
                   date={edge.node.frontmatter.date}
-                  src={edge.node.frontmatter.thumbnail.childImageSharp.fluid.src}
-                  link={edge.node.fields.slug}
-                />
-                
+                  src={} />
               </Col>
             ))
           }
+          
         </Row>
       </Container>
     </Layout>
